@@ -21,10 +21,6 @@ question = "How do I set a new password"
 dataset_name = "bitext/Bitext-retail-banking-llm-chatbot-training-dataset"
 page_content_column = "response"  # or any other column you're interested in
 
-#second dataset
-#dataset_name = "RetailLLM/store_data"
-#page_content_column = "Product Description"  # or any other column you're interested in
-
 loader = HuggingFaceDatasetLoader(dataset_name, page_content_column)
 data = loader.load()
 
