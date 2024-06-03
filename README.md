@@ -95,7 +95,7 @@ a system with complex reasoning capabilities, memory, and the means to execute t
 	an llm acts as the 'brain' of the agent
  	
  
- <img width="644" alt="Screenshot 2024-06-03 at 1 06 11 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/6bbd646c-df62-4b33-a353-0b9af45dd92d">
+<img width="687" alt="Screenshot 2024-06-03 at 1 49 57 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/fda1d1c8-f7cb-41ed-b09b-148ed4719204">
 
 
 
