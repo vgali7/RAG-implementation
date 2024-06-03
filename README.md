@@ -100,8 +100,6 @@ a system with complex reasoning capabilities, memory, and the means to execute t
 
 
 
-
-
-Semantic Kernel -
+			Semantic Kernel -
 
 LLM Chaining -
