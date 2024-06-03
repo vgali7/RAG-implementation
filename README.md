@@ -16,6 +16,7 @@ This allows the llm to capture meanings of questions and associate with the corr
 Pros:
 Creating personal rag will allow for privacy of personal information (salesman user)
 Allows for customization (guiding the user to certain dataset endpoints based on prompts)
+<img width="1018" alt="Screenshot 2024-06-03 at 12 57 43 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/b2e1f83f-4dc9-4a65-a92c-4d1da82b1294">
 
 
 
