@@ -86,7 +86,7 @@ Steps:
 
 Chroma - in memory rag for learning
 
-
+----------------------------------------------------------------------------------------------------------------
 <img width="605" alt="Screenshot 2024-06-03 at 12 59 09 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/b8a603e5-7339-4309-8d17-db14d4c22f2c">
 
 LLM Chaining -
