@@ -9,6 +9,7 @@ Highly useful for using llm’s in specific use cases
 	
 A rag will use a prompt to get contextualized information from a database
 		It will feel the contextualized information and prompt to an LLM
+<img width="861" alt="Screenshot 2024-06-03 at 12 58 24 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/f5fb66ea-816d-4170-9425-482a77719d32">
 
 We want to use vectorized embeddings to capture semantic relationships
 This allows the llm to capture meanings of questions and associate with the correct contextualized information
@@ -16,8 +17,6 @@ This allows the llm to capture meanings of questions and associate with the corr
 Pros:
 Creating personal rag will allow for privacy of personal information (salesman user)
 Allows for customization (guiding the user to certain dataset endpoints based on prompts)
-<img width="1018" alt="Screenshot 2024-06-03 at 12 57 43 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/b2e1f83f-4dc9-4a65-a92c-4d1da82b1294">
-
 
 
 Cons:
@@ -81,6 +80,7 @@ Retrieve the data chunks, and feed them into an LLM
 Chroma - in memory rag for learning
 
 
+<img width="605" alt="Screenshot 2024-06-03 at 12 59 09 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/b8a603e5-7339-4309-8d17-db14d4c22f2c">
 
 
 Semantic router -
