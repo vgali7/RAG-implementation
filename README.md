@@ -89,8 +89,21 @@ Chroma - in memory rag for learning
 
 <img width="605" alt="Screenshot 2024-06-03 at 12 59 09 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/b8a603e5-7339-4309-8d17-db14d4c22f2c">
 
+LLM Chaining -
 
+The act of connecting an LLM to an external application (a RAG is an example where the external application is a data source)
+
+
+There are various LLM chaining frameworks 
+
+		Langchain - good for prototyping due to its breadth and simplicity
+  		LLamaindex - excels at data collection, indexing, and querying, best for semantic search and retrieval
+    		Haystack - best for simpler search and indexing-based LLM applications
+    		AutoGen - best for multi-agent interactions, automation, and conversational prompting 
+
+      
 Semantic router -
+
 A super fast decision making layer for the LLM 
  	Allows user to configure deterministic responses to specific triggers
 	Eg -> one input prompt can trigger a different set of rules for an LLM agent
@@ -110,7 +123,5 @@ a system with complex reasoning capabilities, memory, and the means to execute t
 		Memory - manages the agent's past behaviors
   		Tools - includes databases, knowledge bases, and external models.
 
-<br><br><br>
-Semantic Kernel -
 
-LLM Chaining -
+Semantic Kernel -
