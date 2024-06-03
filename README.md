@@ -107,7 +107,8 @@ a system with complex reasoning capabilities, memory, and the means to execute t
 		User Request - a user question or request  	
 		Agent/Brain - the agent core acting as coordinator	
 		Planning - assists the agent in planning future actions		
-		Memory - manages the agent's past behaviors	
+		Memory - manages the agent's past behaviors
+  		Tools - includes databases, knowledge bases, and external models.
 
 <br><br><br>
 Semantic Kernel -
