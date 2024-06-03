@@ -85,12 +85,16 @@ Chroma - in memory rag for learning
 
 Semantic router -
 A super fast decision making layer for the LLM 
- 	Allows user to configure deterministic responses to specific triggers
-	Eg -> one input prompt can trigger a different set of rules for an LLM agent
+ Allows user to configure deterministic responses to specific triggers
+Eg -> one input prompt can trigger a different set of rules for an LLM agent
 
 LLM actions - 
 
 LLM agents - 
+a system with complex reasoning capabilities, memory, and the means to execute tasks.
+Used for more complex tasks than a rag is capable of 
+<img width="644" alt="Screenshot 2024-06-03 at 1 06 11 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/6bbd646c-df62-4b33-a353-0b9af45dd92d">
+
 
 Semantic Kernel -
 
