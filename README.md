@@ -47,7 +47,7 @@ Langchain provides a set of abstractions for converting the database into a vect
 Langchain is written in python, for C++ you can use faiss, annoy, usearch
 Overall, langchain is more simple and intuitive than llamaindex, which is better for more data flexibility focused projects. 
 
-
+ 
 Amazon Elastic Cloud (EC2) -
 Compute instances in the cloud (creating a server)
 Pay for time server is up
