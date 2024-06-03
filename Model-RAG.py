@@ -10,7 +10,8 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_core.prompts import PromptTemplate
 import os 
 
-os.environ["OPENAI_API_KEY"] = "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"
+#insert openapi key
+os.environ["OPENAI_API_KEY"] = ""
 
 
 
