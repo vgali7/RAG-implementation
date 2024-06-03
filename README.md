@@ -93,7 +93,7 @@ LLM actions -
 LLM agents - 
 a system with complex reasoning capabilities, memory, and the means to execute tasks.
 	Used for more complex tasks than a rag is capable of 
-<img width="644" alt="Screenshot 2024-06-03 at 1 06 11 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/6bbd646c-df62-4b33-a353-0b9af45dd92d">
+	<img width="644" alt="Screenshot 2024-06-03 at 1 06 11 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/6bbd646c-df62-4b33-a353-0b9af45dd92d">
 
 
 Semantic Kernel -
