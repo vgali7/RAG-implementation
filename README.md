@@ -105,12 +105,10 @@ There are various LLM chaining frameworks
 	Allows user to configure deterministic responses to specific triggers
 	Eg -> one input prompt can trigger a different set of rules for an LLM agent
 
-**LLM actions** - 
-
 **LLM agents** - 
 	a system with complex reasoning capabilities, memory, and the means to execute tasks more complex than a rag.
-		an llm acts as the 'brain' of the agent
- 	
+		an llm acts as the 'brain' of the agent.
+	There are thousands of potential prompts, models, use cases that can be used as agent core available on langchain hubs.
  
 <img width="687" alt="Screenshot 2024-06-03 at 1 49 57 PM" src="https://github.com/vgali7/RAG-implementation/assets/79680489/fda1d1c8-f7cb-41ed-b09b-148ed4719204">
 
@@ -123,9 +121,12 @@ There are various LLM chaining frameworks
 
 Semantic Kernel -
 
-An LLM needs more information than the api is was built on. One way is prompt engineering
 
 Microsoft created an open source SDK called semantic kernel used for automated AI function chains - github copilot is an example
+
+It acts as an alternative to langchain/llamaindex/etc
+
+An LLM needs more information than the api is was built on. One way is prompt engineering
 
 It is commonly used for creating complex code on the fly, but has a purpose in prompting as well -
 reading intent of a prompt, and even configuring it in the following ways:
