@@ -138,3 +138,7 @@ reading intent of a prompt, and even configuring it in the following ways:
 		Provide context to the AI (history)
 		Using message roles in chat completion prompts
 		Give your AI words of encouragement
+
+
+
+**Elastic Search** - Acts as a search engine and data analysis tool. Can be used to improve efficacy of RAG
