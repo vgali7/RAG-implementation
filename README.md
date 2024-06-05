@@ -140,5 +140,22 @@ reading intent of a prompt, and even configuring it in the following ways:
 		Give your AI words of encouragement
 
 
+**Vector Database Options**
 
-**Elastic Search** - Acts as a search engine and data analysis tool. Can be used to improve efficacy of RAG
+ChromaDB -
+
+	Uses nearest neighbor searching
+ 	Need to pay as you scale
+  	Optimized for local development
+
+Elastic Search - 
+
+ 	Slow indexing
+  	Provides data encryption
+
+FAISS - 
+
+	Uses nearest neighbor searching
+ 	Need to pay as you scale
+	Best for large scale applications
+  
