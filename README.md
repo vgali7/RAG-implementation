@@ -159,3 +159,6 @@ FAISS -
  	Need to pay as you scale
 	Best for large scale applications
   
+----------------------------------------------------------------------------------------------------------------
+
+LLamaindex provides functionality for RAG implementation with PandasQuerying for csv files as data source for RAG.
