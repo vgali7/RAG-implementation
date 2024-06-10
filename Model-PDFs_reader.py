@@ -13,7 +13,7 @@ from langchain.document_loaders import PyPDFLoader
 import os 
 
 #insert openapi key
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 question = "can you help me set a new password"
 
