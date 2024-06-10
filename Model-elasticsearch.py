@@ -24,7 +24,7 @@ docs = text_splitter.split_documents(data)
 vectorstore = ElasticsearchStore.from_documents(
     documents=docs,
     index_name="elastic_search_vectorstore",
-    es_api_key="SGR4ZkFwQUJ0NWNBRFZPSUlTN1k6ZlEzVFNOMVZTWVN6aVVLaElEbmR2UQ==",
+    es_api_key="",
     embedding=OpenAIEmbeddings(),
     es_cloud_id="3438e9938373428281c9861abac4c00c:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGVjOTBhOWEzMmY5MTQwZjI4OTAwOGMzMjhiZTlkZmI2JGQ5ODE5NWU4MmJlMDQwNzNhOWYxZDAwZmYzM2YzMTZk"
 
