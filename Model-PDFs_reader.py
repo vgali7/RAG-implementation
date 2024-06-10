@@ -4,6 +4,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.chat_models import ChatOpenAI
 from langchain_openai import ChatOpenAI
 from langchain_chroma import Chroma
+from langchain_elasticsearch import ElasticsearchStore
 from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -12,7 +13,7 @@ from langchain.document_loaders import PyPDFLoader
 import os 
 
 #insert openapi key
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = "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"
 
 question = "can you help me set a new password"
 
@@ -27,7 +28,7 @@ for file in os.listdir(current_dir):
 ### split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
 docs = text_splitter.split_documents(data)
-vectorstore = Chroma.from_documents(documents=docs, embedding=OpenAIEmbeddings())
+vectorstore = ElasticsearchStore.from_documents(documents=docs, embedding=OpenAIEmbeddings())
 retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
 
 

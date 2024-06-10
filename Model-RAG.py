@@ -4,6 +4,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.chat_models import ChatOpenAI
 from langchain_openai import ChatOpenAI
 from langchain_chroma import Chroma
+from langchain_elasticsearch import ElasticsearchStore
 from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -27,7 +28,7 @@ data = loader.load()
 ### split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
 docs = text_splitter.split_documents(data)
-vectorstore = Chroma.from_documents(documents=docs, embedding=OpenAIEmbeddings())
+vectorstore = ElasticsearchStore.from_documents(documents=docs, embedding=OpenAIEmbeddings())
 retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
 
 
