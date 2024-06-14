@@ -9,21 +9,21 @@ from langchain import hub
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.prompts import PromptTemplate
+from langchain.document_loaders import PyPDFLoader
 import os 
 
 #insert openapi key
 os.environ["OPENAI_API_KEY"] = ""
 
+question = "can you help me set a new password"
 
-
-question = "How do I set a new password"
-
-###load data
-dataset_name = "bitext/Bitext-retail-banking-llm-chatbot-training-dataset"
-page_content_column = "response"  # or any other column you're interested in
-
-loader = HuggingFaceDatasetLoader(dataset_name, page_content_column)
-data = loader.load()
+data = []
+current_dir = os.getcwd()
+for file in os.listdir(current_dir):
+    if file.endswith('.pdf'):
+        pdf_path = os.path.join(current_dir, file)
+        loader = PyPDFLoader(pdf_path)
+        data.extend(loader.load())
 
 ### split data
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
@@ -54,7 +54,6 @@ rag_chain = (
 
 for chunk in rag_chain.stream(question):
     print(chunk, end="", flush=True)
-
 
 
 

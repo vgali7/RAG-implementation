@@ -9,6 +9,7 @@ from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent.legacy.react.base import ReActAgent
 from llama_index.llms.openai import OpenAI
 from pdf import america_engine
+from semantic import path_engine
 
 current_dir = os.getcwd()
 population_path = os.path.join(current_dir, "data", "population.csv")
@@ -19,7 +20,13 @@ population_query_engine = PandasQueryEngine(df=population_df, verbose=True, inst
 population_query_engine.update_prompts({"pandas_prompt": new_prompt})
 #population_query_engine.query("what is the population of canada")
 
+dataset_name = "bitext/Bitext-retail-banking-llm-chatbot-training-dataset"
+page_content_column = "response"  # or any other column you're interested in
+
+
+
 tools = [
+    path_engine,
     note_engine,
     QueryEngineTool(query_engine=population_query_engine, metadata=ToolMetadata(
         name="population_data",
