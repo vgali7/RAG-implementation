@@ -40,20 +40,16 @@ example_messages = prompt.invoke(
 print(example_messages[0].content)
 print('------')
 
-def format_docs(docs):
-    return "\n\n".join(doc.page_content for doc in docs)
-
 #custom_rag_prompt = PromptTemplate.from_template("Custom Prompt")
 
 rag_chain = (
-    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    {"context": retriever, "question": RunnablePassthrough()}
     | prompt  #Custom prompt from custom_rag_prompt
     | llm
     | StrOutputParser()
 )
 
-for chunk in rag_chain.stream(question):
-    print(chunk, end="", flush=True)
+print(rag_chain.invoke(question))
 
 
 
