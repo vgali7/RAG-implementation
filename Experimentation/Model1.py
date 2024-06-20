@@ -14,7 +14,14 @@ from semantic_router import Route
 from semantic_router.layer import RouteLayer
 from langchain_openai import OpenAIEmbeddings
 import os 
-os.environ["OPENAI_API_KEY"] = ""
+#os.environ["OPENAI_API_KEY"] = ""
+
+# Retrieve API key from environment variable
+api_key = os.getenv("OPENAI_API_KEY")
+
+# Set the API key
+os.environ["OPENAI_API_KEY"] = api_key
+
 question = "What is happening under the hood of a computer"
 print(question)
 
