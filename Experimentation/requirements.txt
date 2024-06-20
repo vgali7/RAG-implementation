@@ -1,0 +1,10 @@
+streamlit==0.81.1
+PyPDF2==1.26.0
+PyMuPDF==1.18.20
+langchain==0.4.0
+langchain-openai==0.4.0
+langchain-community==0.4.0
+langchain-chroma==0.4.0
+langchain-core==0.4.0
+semantic-router==0.4.0
+langchain-elasticsearch==0.4.0
