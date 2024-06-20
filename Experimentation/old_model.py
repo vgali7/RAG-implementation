@@ -16,7 +16,7 @@ from langchain_openai import OpenAIEmbeddings
 import os 
 
 #insert openapi key
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 question = "What are examples of vector databases"
 print(question)
 
