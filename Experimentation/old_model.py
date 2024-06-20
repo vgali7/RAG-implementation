@@ -13,6 +13,7 @@ from semantic_router import Route
 from langchain_elasticsearch import ElasticsearchStore
 from semantic_router.layer import RouteLayer
 from langchain_openai import OpenAIEmbeddings
+from elasticsearch import Elasticsearch
 import os 
 
 #insert openapi key
@@ -36,6 +37,13 @@ for file in os.listdir(current_dir):
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
 docs = text_splitter.split_documents(data)
+es = Elasticsearch(
+    cloud_id="3438e9938373428281c9861abac4c00c:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGVjOTBhOWEzMmY5MTQwZjI4OTAwOGMzMjhiZTlkZmI2JGQ5ODE5NWU4MmJlMDQwNzNhOWYxZDAwZmYzM2YzMTZk"
+,
+    api_key= "MGR5S0Y1QUJ0NWNBRFZPSWx6RGg6NmJrYVM1ZzZTaXlabjJCeUNfN1NHUQ==",
+)
+if es.indices.exists(index="temp.pdf"):
+    es.indices.delete(index="temp.pdf")
 vectorstore = ElasticsearchStore.from_documents(
             documents=docs,
             index_name="elastic_search_vectorstore",
@@ -45,9 +53,10 @@ vectorstore = ElasticsearchStore.from_documents(
 
         )
 #vectorstore = Chroma.from_documents(documents=docs, embedding=OpenAIEmbeddings())
-retriever = vectorstore.as_retriever()
+retriever = vectorstore.as_retriever(search_kwargs={"k": 6})
 chunks = retriever.invoke(question)
 print("---Retrival---:")
+print(len(chunks))
 for i in range(len(chunks)):
     chunk = chunks[i].page_content.replace("\n", " ")
     print(f'{i+1}: \n {chunk}\n')

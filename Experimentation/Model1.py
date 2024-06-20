@@ -13,6 +13,7 @@ from semantic_router.encoders import OpenAIEncoder
 from semantic_router import Route
 from semantic_router.layer import RouteLayer
 from langchain_openai import OpenAIEmbeddings
+from elasticsearch import Elasticsearch
 import os 
 os.environ["OPENAI_API_KEY"] = ""
 question = "What is happening under the hood of a computer"
@@ -23,6 +24,11 @@ class Model:
         self.question = None
         self.llm = ChatOpenAI(model_name="gpt-3.5-turbo")
         self.retriever = None
+        self.es = Elasticsearch(
+            cloud_id="3438e9938373428281c9861abac4c00c:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGVjOTBhOWEzMmY5MTQwZjI4OTAwOGMzMjhiZTlkZmI2JGQ5ODE5NWU4MmJlMDQwNzNhOWYxZDAwZmYzM2YzMTZk"
+        ,
+            api_key= "MGR5S0Y1QUJ0NWNBRFZPSWx6RGg6NmJrYVM1ZzZTaXlabjJCeUNfN1NHUQ==",
+        )
 
         encoder = OpenAIEncoder()
         rag_route = Route(
@@ -53,6 +59,8 @@ class Model:
     def get_retriever(self,data):
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
         docs = text_splitter.split_documents(data)
+        if self.es.indices.exists(index="elastic_search_vectorstore"):
+            self.es.indices.delete(index="elastic_search_vectorstore")
         vectorstore = ElasticsearchStore.from_documents(
             documents=docs,
             index_name="elastic_search_vectorstore",
@@ -63,7 +71,6 @@ class Model:
         )
         #vectorstore = Chroma.from_documents(documents=docs, embedding=OpenAIEmbeddings())
         self.retriever = vectorstore.as_retriever()
-        return self.retriever
 
     def create_rag_chain(self, custom_prompt=False):
         if custom_prompt == False: 

@@ -49,8 +49,8 @@ if uploaded_file is not None:
                 data = loader.load()
             
                 # Base retrieval
-                retriever = model.get_retriever(data)
-                chunks = retriever.invoke(model.question)
+                model.get_retriever(data)
+                chunks = model.retriever.invoke(model.question)
                 retriever_data = []
                 for i in range(len(chunks)):
                     chunk = chunks[i].page_content.replace("\n", " ")
