@@ -8,3 +8,4 @@ langchain-chroma
 langchain-core
 semantic-router
 langchain-elasticsearch
+pypdf
