@@ -6,30 +6,25 @@ from Display import Display
 import fitz
 from langchain_community.document_loaders import PyPDFLoader
 
-# run app using "streamlit run app.py"
 st.set_page_config(
     page_title="Retrieval Augmented Generation",
     layout="wide",
 )
 
-st.title("Retrieval Augmented Generation")
-uploaded_file = st.file_uploader("Upload PDF")
+def login():
+    st.title("Login")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    if st.button("Login"):
+        if username == "admin" and password == "coffee":
+            st.session_state['logged_in'] = True
+        else:
+            st.error("Invalid username or password")
 
-def extract_text_from_pdf(uploaded_file):
-    uploaded_file.seek(0)  # Reset the file pointer to the start
-    pdf_document = fitz.open(stream=uploaded_file.read(), filetype="pdf")
-    text = []
-    for page_num in range(len(pdf_document)):
-        page = pdf_document.load_page(page_num)
-        text.append(page.get_text("text"))
-    return text
-    
-if uploaded_file is not None:
+def process_pdf_file(uploaded_file, model, display):
     try:
         if uploaded_file.name.endswith('.pdf'):
-            model = Model()
             model.question = st.text_input("Enter a question")
-            pdf_reader = PyPDF2.PdfReader(uploaded_file)
             display = Display()
             display.container.empty()
 
@@ -72,10 +67,26 @@ if uploaded_file is not None:
                 display.container.empty()
         
         else:
-            st.write("Invalid file type")
-           
-            
+            st.write(f"Skipping {uploaded_file.name}. Invalid file type")
 
     except Exception as e:
-        st.write("Error reading file:", e)
-    
+        st.write(f"Error reading file {uploaded_file.name}:", e)
+
+def main():
+    st.title("Retrieval Augmented Generation")
+    uploaded_files = st.file_uploader("Upload PDF", accept_multiple_files=True)
+
+    if uploaded_files:
+        model = Model()
+        display = Display()
+
+        for uploaded_file in uploaded_files:
+            process_pdf_file(uploaded_file, model, display)
+
+if 'logged_in' not in st.session_state:
+    st.session_state['logged_in'] = False
+
+if st.session_state['logged_in']:
+    main()
+else:
+    login()
