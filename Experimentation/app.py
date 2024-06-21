@@ -18,6 +18,7 @@ def login():
     if st.button("Login"):
         if username == "admin" and password == "coffee":
             st.session_state['logged_in'] = True
+            st.experimental_rerun()
         else:
             st.error("Invalid username or password")
 
