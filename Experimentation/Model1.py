@@ -24,7 +24,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = api_key
 
 question = "What is happening under the hood of a computer"
-print(question)
+#print(question)
 
 class Model:
     def __init__(self):
