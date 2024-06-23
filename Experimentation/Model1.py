@@ -80,7 +80,7 @@ class Model:
             prompt = """
             Using {context} as a retriever, you retrive 4 chunks deemed relevant to the question {question}. Iterate through the chunks and decide if the chunk is strongly related in context to the question. If the chunk is relevant, use the chunk. If any of the chunks are stringly related, use those to answer the question.
             If none of the chunks are strongly related, then say only 
-            'I'm afraid I cannot assist with that. If you have any questions concering retrieval augmented generation, I would be happy to help'
+            'I'm afraid I cannot assist with that. If you have any questions concering concerning the selected files, I would be happy to help'
             """
             prompt = PromptTemplate.from_template(prompt)
 
@@ -95,5 +95,5 @@ class Model:
         if route.name == "Retrieval_Augmented_Generation":
             return self.create_rag_chain()
         else:
-            output = "I'm afraid I cannot assist with that. If you have any questions concering retrieval augmented generation, I would be happy to help"
+            output = "I'm afraid I cannot assist with that. If you have any questions concerning the selected files, I would be happy to help"
             return output

@@ -3,7 +3,6 @@ import streamlit as st
 class Display:
     def __init__(self):
         self.container = st.empty()
-        self.custom = False
         self.dic = {
             'LLM without retrieval': None,
             'Base retrieval': None,
