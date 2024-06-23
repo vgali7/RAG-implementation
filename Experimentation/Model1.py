@@ -15,14 +15,7 @@ from semantic_router.layer import RouteLayer
 from langchain_openai import OpenAIEmbeddings
 from elasticsearch import Elasticsearch
 import os 
-#os.environ["OPENAI_API_KEY"] = ""
-
-# Retrieve API key from environment variable
-api_key = os.getenv("OPENAI_API_KEY")
-
-# Set the API key
-os.environ["OPENAI_API_KEY"] = api_key
-
+os.environ["OPENAI_API_KEY"] = ""
 question = "What is happening under the hood of a computer"
 print(question)
 
@@ -31,6 +24,7 @@ class Model:
         self.question = None
         self.llm = ChatOpenAI(model_name="gpt-3.5-turbo")
         self.retriever = None
+        #self.es = Elasticsearch(['http://localhost:9200'])
         self.es = Elasticsearch(
             cloud_id="3438e9938373428281c9861abac4c00c:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGVjOTBhOWEzMmY5MTQwZjI4OTAwOGMzMjhiZTlkZmI2JGQ5ODE5NWU4MmJlMDQwNzNhOWYxZDAwZmYzM2YzMTZk"
         ,
@@ -84,8 +78,8 @@ class Model:
             prompt = hub.pull("rlm/rag-prompt")
         else:
             prompt = """
-            Using {context} as a retriever for data chucks relevant to {question}, polish the context to provide the answer to the question.
-            However if {question} is not strongly related to any of questions in {context}, say 
+            Using {context} as a retriever, you retrive 4 chunks deemed relevant to the question {question}. Iterate through the chunks and decide if the chunk is strongly related in context to the question. If the chunk is relevant, use the chunk. If any of the chunks are stringly related, use those to answer the question.
+            If none of the chunks are strongly related, then say only 
             'I'm afraid I cannot assist with that. If you have any questions concering retrieval augmented generation, I would be happy to help'
             """
             prompt = PromptTemplate.from_template(prompt)

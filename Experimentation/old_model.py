@@ -37,13 +37,6 @@ for file in os.listdir(current_dir):
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
 docs = text_splitter.split_documents(data)
-es = Elasticsearch(
-    cloud_id="3438e9938373428281c9861abac4c00c:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGVjOTBhOWEzMmY5MTQwZjI4OTAwOGMzMjhiZTlkZmI2JGQ5ODE5NWU4MmJlMDQwNzNhOWYxZDAwZmYzM2YzMTZk"
-,
-    api_key= "MGR5S0Y1QUJ0NWNBRFZPSWx6RGg6NmJrYVM1ZzZTaXlabjJCeUNfN1NHUQ==",
-)
-if es.indices.exists(index="temp.pdf"):
-    es.indices.delete(index="temp.pdf")
 vectorstore = ElasticsearchStore.from_documents(
             documents=docs,
             index_name="elastic_search_vectorstore",
@@ -124,4 +117,5 @@ def semantic_layer(question):
 semantic_layer(question)
 print("---End Semantic Router Guard---")
 
-
+prompt = hub.pull("rlm/rag-prompt")
+print(prompt)
