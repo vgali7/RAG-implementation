@@ -8,7 +8,7 @@ class Display:
             'Base retrieval': None,
             'RAG with hub prompt': None,
             'RAG with custom prompt': None,
-            'Semantic Router Guard': None
+            #'Semantic Router Guard': None
         }
 
     def show(self):

@@ -31,22 +31,12 @@ class Model:
             api_key= "MGR5S0Y1QUJ0NWNBRFZPSWx6RGg6NmJrYVM1ZzZTaXlabjJCeUNfN1NHUQ==",
         )
 
-        encoder = OpenAIEncoder()
-        rag_route = Route(
-            name="Retrieval_Augmented_Generation",
-            utterances=[
-                "Overview of retrieval augmented generation",
-                "How does retrieval augmented generation work",
-                "What are retrieval augmented generation frameworks",
-                "What is a text splitter",
-                "What are vector databases",
-                "How to implement retrieval augmented generation",
-                "What are pros and cons of retrieval augmented generation",
-                "How do you enhance retrieval augmented generation",
-                "What are some examples of cloud computing services"
-            ],
-        )
-        self.layer = RouteLayer(encoder=encoder, routes=[rag_route])
+        self.routes = []
+    
+    def add_route(self,file_name):
+        print(file_name)
+        route = Route(name = file_name, utterances = [])
+        self.routes.append(route)
 
     def get_pdf(self):
         data = []
@@ -78,8 +68,9 @@ class Model:
             prompt = hub.pull("rlm/rag-prompt")
         else:
             prompt = """
-            Using {context} as a retriever, you retrive 4 chunks deemed relevant to the question {question}. Iterate through the chunks and decide if the chunk is strongly related in context to the question. If the chunk is relevant, use the chunk. If any of the chunks are stringly related, use those to answer the question.
-            If none of the chunks are strongly related, then say only 
+            Using {context} as a retriever, retrieve relevant information based on the question {question}. Evaluate each retrieved chunk to determine its strong relevance to the question. If a chunk is highly relevant, incorporate it as part of your response. Otherwise, disregard it.
+            If any of the chunks are strongly related, respond with only the answer.
+            If none of the chunks are strongly related, respond with
             'I'm afraid I cannot assist with that. If you have any questions concering concerning the selected files, I would be happy to help'
             """
             prompt = PromptTemplate.from_template(prompt)
@@ -90,10 +81,11 @@ class Model:
         return rag_chain.invoke(self.question)
 
     def semantic_router(self):
-        route = self.layer(self.question)
+        layer = RouteLayer(encoder= OpenAIEncoder(), routes=self.routes)
+        route = layer(self.question)
 
-        if route.name == "Retrieval_Augmented_Generation":
-            return self.create_rag_chain()
+        if route.name is not None:
+            return route
         else:
             output = "I'm afraid I cannot assist with that. If you have any questions concerning the selected files, I would be happy to help"
             return output
