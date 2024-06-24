@@ -15,9 +15,9 @@ from semantic_router.layer import RouteLayer
 from langchain_openai import OpenAIEmbeddings
 from elasticsearch import Elasticsearch
 import os 
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 question = "What is happening under the hood of a computer"
-print(question)
+#print(question)
 
 class Model:
     def __init__(self):
