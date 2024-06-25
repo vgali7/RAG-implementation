@@ -1,0 +1,71 @@
+{
+    "manager_id": "67890",
+    "name": "John Smith",
+    "position": "Engineering Manager",
+    "department": "Development",
+    "email": "john.smith@techcompany.com",
+    "phone": "555-9876",
+    "address": {
+        "street": "789 Managerial Ave",
+        "city": "Innovation City",
+        "state": "CA",
+        "zip": "94016"
+    },
+    "employment_details": {
+        "date_hired": "2018-03-01",
+        "salary": 120000,
+        "status": "Full-time"
+    },
+    "team": [
+        {
+            "worker_id": "12345",
+            "name": "Jane Doe",
+            "position": "Software Engineer"
+        },
+        {
+            "worker_id": "23456",
+            "name": "Alice Johnson",
+            "position": "UI/UX Designer"
+        }
+    ],
+    "projects": [
+        {
+            "project_id": "005",
+            "name": "AI Integration",
+            "role": "Project Manager",
+            "start_date": "2021-01-01",
+            "end_date": "2021-12-31"
+        },
+        {
+            "project_id": "006",
+            "name": "Cloud Migration",
+            "role": "Project Manager",
+            "start_date": "2022-01-01",
+            "end_date": "Present"
+        }
+    ],
+    "skills": [
+        "Project Management",
+        "Agile Methodologies",
+        "Team Leadership",
+        "Python",
+        "AWS"
+    ],
+    "performance_reviews": [
+        {
+            "review_date": "2021-12-31",
+            "rating": 5,
+            "comments": "John is an exceptional leader who consistently delivers successful projects."
+        },
+        {
+            "review_date": "2022-12-31",
+            "rating": 5,
+            "comments": "John has maintained high performance and continues to inspire his team."
+        }
+    ],
+    "benefits": {
+        "health_insurance": "Executive Plan",
+        "retirement_plan": "401(k) with company match",
+        "paid_time_off": 25
+    }
+}

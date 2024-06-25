@@ -1,0 +1,64 @@
+{
+    "worker_id": "23456",
+    "name": "Alice Johnson",
+    "position": "UI/UX Designer",
+    "department": "Design",
+    "email": "alice.johnson@techcompany.com",
+    "phone": "555-5678",
+    "address": {
+        "street": "456 Creative Blvd",
+        "city": "Innovation City",
+        "state": "CA",
+        "zip": "94016"
+    },
+    "employment_details": {
+        "date_hired": "2021-06-22",
+        "salary": 85000,
+        "status": "Full-time"
+    },
+    "manager": {
+        "manager_id": "67890",
+        "name": "John Smith",
+        "position": "Engineering Manager"
+    },
+    "projects": [
+        {
+            "project_id": "003",
+            "name": "Website Redesign",
+            "role": "Lead Designer",
+            "start_date": "2021-07-01",
+            "end_date": "2021-12-31"
+        },
+        {
+            "project_id": "004",
+            "name": "Mobile App UI",
+            "role": "Designer",
+            "start_date": "2022-01-01",
+            "end_date": "Present"
+        }
+    ],
+    "skills": [
+        "Sketch",
+        "Adobe XD",
+        "Figma",
+        "HTML",
+        "CSS"
+    ],
+    "performance_reviews": [
+        {
+            "review_date": "2021-12-31",
+            "rating": 5,
+            "comments": "Alice has a keen eye for design and consistently delivers high-quality work."
+        },
+        {
+            "review_date": "2022-12-31",
+            "rating": 4,
+            "comments": "Alice's design skills are top-notch, but she needs to improve her time management."
+        }
+    ],
+    "benefits": {
+        "health_insurance": "Standard Plan",
+        "retirement_plan": "401(k)",
+        "paid_time_off": 15
+    }
+}

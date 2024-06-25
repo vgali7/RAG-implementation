@@ -1,0 +1,64 @@
+{
+    "worker_id": "12345",
+    "name": "Jane Doe",
+    "position": "Software Engineer",
+    "department": "Development",
+    "email": "jane.doe@techcompany.com",
+    "phone": "555-1234",
+    "address": {
+        "street": "123 Tech Lane",
+        "city": "Innovation City",
+        "state": "CA",
+        "zip": "94016"
+    },
+    "employment_details": {
+        "date_hired": "2022-01-15",
+        "salary": 90000,
+        "status": "Full-time"
+    },
+    "manager": {
+        "manager_id": "67890",
+        "name": "John Smith",
+        "position": "Engineering Manager"
+    },
+    "projects": [
+        {
+            "project_id": "001",
+            "name": "Internal Tool Development",
+            "role": "Lead Developer",
+            "start_date": "2022-02-01",
+            "end_date": "2022-06-30"
+        },
+        {
+            "project_id": "002",
+            "name": "Customer Portal",
+            "role": "Developer",
+            "start_date": "2022-07-01",
+            "end_date": "Present"
+        }
+    ],
+    "skills": [
+        "Python",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Django"
+    ],
+    "performance_reviews": [
+        {
+            "review_date": "2022-06-30",
+            "rating": 4,
+            "comments": "Jane has shown great initiative and leadership skills."
+        },
+        {
+            "review_date": "2023-06-30",
+            "rating": 5,
+            "comments": "Jane continues to exceed expectations with her technical expertise."
+        }
+    ],
+    "benefits": {
+        "health_insurance": "Premium Plan",
+        "retirement_plan": "401(k)",
+        "paid_time_off": 20
+    }
+}
