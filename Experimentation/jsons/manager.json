@@ -168,5 +168,80 @@
             "stock_options": true,
             "flexible_work_hours": true
         }
-    }
+    },
+    "additional_projects": [
+        {
+            "project_id": "011",
+            "name": "Cybersecurity Overhaul",
+            "role": "Project Manager",
+            "start_date": "2023-01-01",
+            "end_date": "2023-12-31",
+            "details": {
+                "budget": 600000,
+                "team_members": ["Jane Doe", "Alice Johnson", "Carl White"],
+                "milestones": [
+                    {
+                        "milestone": "Initial Assessment",
+                        "date": "2023-02-01"
+                    },
+                    {
+                        "milestone": "Implementation",
+                        "date": "2023-06-01"
+                    },
+                    {
+                        "milestone": "Final Review",
+                        "date": "2023-12-01"
+                    }
+                ],
+                "outcome": "Enhanced security with no breaches"
+            }
+        },
+        {
+            "project_id": "012",
+            "name": "Machine Learning Initiative",
+            "role": "Project Manager",
+            "start_date": "2024-01-01",
+            "end_date": "Present",
+            "details": {
+                "budget": 800000,
+                "team_members": ["Jane Doe", "Alice Johnson", "David Blue"],
+                "milestones": [
+                    {
+                        "milestone": "Data Collection",
+                        "date": "2024-02-01"
+                    },
+                    {
+                        "milestone": "Model Training",
+                        "date": "2024-05-01"
+                    },
+                    {
+                        "milestone": "Deployment",
+                        "date": "2024-12-31"
+                    }
+                ],
+                "dependencies": [
+                    {
+                        "dependency": "Data Cleaning",
+                        "status": "Completed"
+                    },
+                    {
+                        "dependency": "Algorithm Optimization",
+                        "status": "In Progress"
+                    }
+                ]
+            }
+        }
+    ],
+    "training_and_certifications": [
+        {
+            "certification": "PMP",
+            "date_obtained": "2019-04-01",
+            "valid_until": "2024-04-01"
+        },
+        {
+            "certification": "AWS Solutions Architect",
+            "date_obtained": "2020-06-15",
+            "valid_until": "2025-06-15"
+        }
+    ]
 }

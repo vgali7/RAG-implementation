@@ -65,48 +65,48 @@
     "projects": [
         {
             "project_id": "001",
-            "name": "Internal Tool Development",
+            "name": "E-commerce Platform",
             "role": "Lead Developer",
             "start_date": "2022-02-01",
-            "end_date": "2022-06-30",
+            "end_date": "2022-12-31",
             "details": {
-                "description": "Developed an internal tool for project management.",
-                "technologies": ["Python", "Django"],
+                "description": "Developed a scalable e-commerce platform.",
+                "technologies": ["React", "Node.js"],
                 "sub_tasks": [
                     {
                         "task": "Database Design",
                         "completed": true
                     },
                     {
-                        "task": "UI Implementation",
+                        "task": "API Development",
                         "completed": true
                     },
                     {
-                        "task": "API Integration",
+                        "task": "Frontend Integration",
                         "completed": true
                     }
                 ],
                 "related_projects": [
                     {
                         "project_id": "002",
-                        "relation": "Predecessor"
+                        "relation": "Successor"
                     },
                     {
-                        "project_id": "003",
-                        "relation": "Successor"
+                        "project_id": "010",
+                        "relation": "Related"
                     }
                 ]
             }
         },
         {
             "project_id": "002",
-            "name": "Customer Portal",
+            "name": "Mobile App Development",
             "role": "Developer",
-            "start_date": "2022-07-01",
+            "start_date": "2023-01-01",
             "end_date": "Present",
             "details": {
-                "description": "Developed a customer portal for better client interaction.",
-                "technologies": ["React", "Node.js"],
+                "description": "Developing a cross-platform mobile application.",
+                "technologies": ["Flutter", "Dart"],
                 "team_members": ["Alice Johnson"],
                 "features": [
                     {
@@ -114,17 +114,17 @@
                         "status": "Completed"
                     },
                     {
-                        "feature": "Data Visualization",
+                        "feature": "In-app Purchases",
                         "status": "In Progress"
                     }
                 ],
                 "dependencies": [
                     {
-                        "dependency": "Database Migration",
+                        "dependency": "Payment Gateway Integration",
                         "status": "Pending"
                     },
                     {
-                        "dependency": "Frontend Framework Upgrade",
+                        "dependency": "Push Notifications",
                         "status": "Completed"
                     }
                 ]
@@ -132,53 +132,99 @@
         }
     ],
     "skills": {
-        "technical": ["Python", "JavaScript", "React", "Node.js", "Django"],
+        "technical": ["JavaScript", "React", "Node.js", "Flutter", "Dart"],
         "soft_skills": ["Problem-solving", "Team Collaboration", "Adaptability"]
     },
     "performance_reviews": [
         {
-            "review_date": "2022-06-30",
+            "review_date": "2022-12-31",
             "rating": 4,
-            "comments": "Jane has shown great initiative and leadership skills.",
+            "comments": "Jane has strong technical skills but needs to improve her time management.",
             "detailed_feedback": {
-                "strengths": ["Technical expertise", "Proactiveness"],
+                "strengths": ["Technical expertise", "Collaboration"],
                 "areas_for_improvement": ["Time management"]
             }
         },
         {
-            "review_date": "2023-06-30",
+            "review_date": "2023-12-31",
             "rating": 5,
-            "comments": "Jane continues to exceed expectations with her technical expertise.",
+            "comments": "Jane has shown significant improvement and consistently delivers high-quality work.",
             "detailed_feedback": {
-                "strengths": ["Innovative thinking", "Mentorship"],
-                "areas_for_improvement": ["Delegation"]
+                "strengths": ["Technical skills", "Innovation"],
+                "areas_for_improvement": ["Leadership"]
             }
         }
     ],
     "training_and_certifications": [
         {
-            "certification": "AWS Certified Developer",
-            "date_obtained": "2022-05-01",
-            "valid_until": "2025-05-01"
+            "certification": "Certified JavaScript Developer",
+            "date_obtained": "2021-03-01",
+            "valid_until": "2024-03-01"
         },
         {
-            "certification": "Scrum Master",
-            "date_obtained": "2023-01-15",
-            "valid_until": "2026-01-15"
+            "certification": "React Professional",
+            "date_obtained": "2022-08-15",
+            "valid_until": "2025-08-15"
         }
     ],
     "personal_projects": [
         {
-            "project_name": "Open Source Contribution",
-            "description": "Contributed to an open-source project on GitHub.",
-            "technologies": ["JavaScript", "Node.js"],
-            "link": "https://github.com/janedoe/opensource"
+            "project_name": "Personal Blog",
+            "description": "Created a blog to share coding tutorials and tech articles.",
+            "technologies": ["Gatsby", "GraphQL"],
+            "link": "https://janedoe.blog"
         },
         {
-            "project_name": "Personal Blog",
-            "description": "Writes technical articles and tutorials on software development.",
-            "technologies": ["HTML", "CSS", "Jekyll"],
-            "link": "https://janedoe.dev"
+            "project_name": "Open Source Library",
+            "description": "Developed an open-source library for data visualization.",
+            "technologies": ["D3.js", "JavaScript"],
+            "link": "https://github.com/janedoe/d3-library"
+        }
+    ],
+    "additional_projects": [
+        {
+            "project_id": "013",
+            "name": "Real-time Chat Application",
+            "role": "Developer",
+            "start_date": "2023-03-01",
+            "end_date": "2023-06-30",
+            "details": {
+                "description": "Developed a real-time chat application with WebSocket.",
+                "technologies": ["Node.js", "WebSocket"],
+                "team_members": ["Alice Johnson"],
+                "features": [
+                    {
+                        "feature": "User Presence",
+                        "status": "Completed"
+                    },
+                    {
+                        "feature": "Message Encryption",
+                        "status": "In Progress"
+                    }
+                ]
+            }
+        },
+        {
+            "project_id": "014",
+            "name": "AI Chatbot",
+            "role": "Developer",
+            "start_date": "2024-01-01",
+            "end_date": "Present",
+            "details": {
+                "description": "Developing an AI chatbot for customer support.",
+                "technologies": ["Python", "TensorFlow"],
+                "team_members": ["Alice Johnson"],
+                "dependencies": [
+                    {
+                        "dependency": "NLP Model",
+                        "status": "In Progress"
+                    },
+                    {
+                        "dependency": "Backend Integration",
+                        "status": "Pending"
+                    }
+                ]
+            }
         }
     ]
 }

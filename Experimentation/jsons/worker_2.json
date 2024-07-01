@@ -132,53 +132,99 @@
         }
     ],
     "skills": {
-        "technical": ["Sketch", "Adobe XD", "Figma", "HTML", "CSS"],
+        "technical": ["Sketch", "Figma", "Adobe XD", "Photoshop", "Illustrator"],
         "soft_skills": ["Creativity", "Attention to Detail", "Communication"]
     },
     "performance_reviews": [
         {
             "review_date": "2021-12-31",
             "rating": 5,
-            "comments": "Alice has a keen eye for design and consistently delivers high-quality work.",
+            "comments": "Alice is a highly creative and dedicated designer.",
             "detailed_feedback": {
-                "strengths": ["Creativity", "Efficiency"],
-                "areas_for_improvement": ["Time management"]
+                "strengths": ["Creativity", "Attention to Detail"],
+                "areas_for_improvement": ["Speed"]
             }
         },
         {
             "review_date": "2022-12-31",
             "rating": 4,
-            "comments": "Alice's design skills are top-notch, but she needs to improve her time management.",
+            "comments": "Alice consistently produces excellent designs but needs to improve her speed.",
             "detailed_feedback": {
-                "strengths": ["Technical skills", "Team Collaboration"],
-                "areas_for_improvement": ["Project Planning"]
+                "strengths": ["Creativity", "Design Skills"],
+                "areas_for_improvement": ["Time Management"]
             }
         }
     ],
     "training_and_certifications": [
         {
             "certification": "Certified UX Designer",
-            "date_obtained": "2020-11-01",
-            "valid_until": "2023-11-01"
+            "date_obtained": "2020-04-01",
+            "valid_until": "2023-04-01"
         },
         {
             "certification": "Adobe Certified Expert",
-            "date_obtained": "2021-05-15",
-            "valid_until": "2024-05-15"
+            "date_obtained": "2021-10-15",
+            "valid_until": "2024-10-15"
         }
     ],
     "personal_projects": [
         {
-            "project_name": "Portfolio Website",
-            "description": "Created a personal portfolio website to showcase my work.",
-            "technologies": ["HTML", "CSS", "JavaScript"],
+            "project_name": "Freelance Design Portfolio",
+            "description": "Showcased my freelance design work.",
+            "technologies": ["WordPress", "CSS"],
             "link": "https://alicejohnson.design"
         },
         {
-            "project_name": "Design System",
-            "description": "Developed a comprehensive design system for consistent UI components.",
-            "technologies": ["Figma", "Sketch"],
-            "link": "https://github.com/alicejohnson/design-system"
+            "project_name": "Mobile Game UI",
+            "description": "Designed UI for an indie mobile game.",
+            "technologies": ["Unity", "Photoshop"],
+            "link": "https://github.com/alicejohnson/mobile-game-ui"
+        }
+    ],
+    "additional_projects": [
+        {
+            "project_id": "015",
+            "name": "AR Interface Design",
+            "role": "Designer",
+            "start_date": "2023-05-01",
+            "end_date": "2023-08-31",
+            "details": {
+                "description": "Designed an AR interface for a retail application.",
+                "technologies": ["Unity", "Adobe XD"],
+                "team_members": ["Jane Doe"],
+                "features": [
+                    {
+                        "feature": "Interactive UI",
+                        "status": "Completed"
+                    },
+                    {
+                        "feature": "User Testing",
+                        "status": "In Progress"
+                    }
+                ]
+            }
+        },
+        {
+            "project_id": "016",
+            "name": "Voice Interface Design",
+            "role": "Designer",
+            "start_date": "2024-01-01",
+            "end_date": "Present",
+            "details": {
+                "description": "Designing a voice interface for a smart home device.",
+                "technologies": ["Figma", "Photoshop"],
+                "team_members": ["Jane Doe"],
+                "dependencies": [
+                    {
+                        "dependency": "Voice Recognition Model",
+                        "status": "In Progress"
+                    },
+                    {
+                        "dependency": "Hardware Integration",
+                        "status": "Pending"
+                    }
+                ]
+            }
         }
     ]
 }
