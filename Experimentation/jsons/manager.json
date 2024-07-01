@@ -9,23 +9,73 @@
         "street": "789 Managerial Ave",
         "city": "Innovation City",
         "state": "CA",
-        "zip": "94016"
+        "zip": "94016",
+        "geo": {
+            "lat": "37.7749",
+            "lng": "-122.4194"
+        }
     },
     "employment_details": {
         "date_hired": "2018-03-01",
         "salary": 120000,
-        "status": "Full-time"
+        "status": "Full-time",
+        "previous_positions": [
+            {
+                "title": "Senior Developer",
+                "department": "Development",
+                "start_date": "2015-06-01",
+                "end_date": "2018-02-28",
+                "projects": [
+                    {
+                        "project_id": "007",
+                        "name": "Legacy System Upgrade",
+                        "role": "Lead Developer",
+                        "details": {
+                            "budget": 300000,
+                            "outcome": "Successful upgrade with minimal downtime",
+                            "team_members": ["Jane Doe"]
+                        }
+                    }
+                ]
+            },
+            {
+                "title": "Project Lead",
+                "department": "Development",
+                "start_date": "2018-03-01",
+                "end_date": "2019-12-31",
+                "projects": [
+                    {
+                        "project_id": "008",
+                        "name": "New Feature Rollout",
+                        "role": "Project Lead",
+                        "details": {
+                            "budget": 200000,
+                            "outcome": "On-time delivery with positive customer feedback",
+                            "team_members": ["Alice Johnson"]
+                        }
+                    }
+                ]
+            }
+        ]
     },
     "team": [
         {
             "worker_id": "12345",
             "name": "Jane Doe",
-            "position": "Software Engineer"
+            "position": "Software Engineer",
+            "contact": {
+                "email": "jane.doe@techcompany.com",
+                "phone": "555-1234"
+            }
         },
         {
             "worker_id": "23456",
             "name": "Alice Johnson",
-            "position": "UI/UX Designer"
+            "position": "UI/UX Designer",
+            "contact": {
+                "email": "alice.johnson@techcompany.com",
+                "phone": "555-5678"
+            }
         }
     ],
     "projects": [
@@ -34,22 +84,68 @@
             "name": "AI Integration",
             "role": "Project Manager",
             "start_date": "2021-01-01",
-            "end_date": "2021-12-31"
+            "end_date": "2021-12-31",
+            "details": {
+                "budget": 500000,
+                "team_members": ["Jane Doe", "Alice Johnson", "Bob Brown"],
+                "outcome": "Successful deployment with 20% performance improvement",
+                "milestones": [
+                    {
+                        "milestone": "Initial Research",
+                        "date": "2021-02-01"
+                    },
+                    {
+                        "milestone": "Prototype Development",
+                        "date": "2021-06-01"
+                    },
+                    {
+                        "milestone": "Final Deployment",
+                        "date": "2021-12-31"
+                    }
+                ]
+            }
         },
         {
             "project_id": "006",
             "name": "Cloud Migration",
             "role": "Project Manager",
             "start_date": "2022-01-01",
-            "end_date": "Present"
+            "end_date": "Present",
+            "details": {
+                "budget": 750000,
+                "team_members": ["Jane Doe", "Alice Johnson"],
+                "milestones": [
+                    {
+                        "milestone": "Phase 1 Completion",
+                        "date": "2022-06-30"
+                    },
+                    {
+                        "milestone": "Phase 2 Completion",
+                        "date": "2023-06-30"
+                    },
+                    {
+                        "milestone": "Final Migration",
+                        "date": "2024-12-31"
+                    }
+                ],
+                "dependencies": [
+                    {
+                        "dependency": "Data Center Upgrade",
+                        "status": "Completed"
+                    },
+                    {
+                        "dependency": "Network Optimization",
+                        "status": "In Progress"
+                    }
+                ]
+            }
         }
     ],
     "skills": [
-        "Project Management",
-        "Agile Methodologies",
-        "Team Leadership",
-        "Python",
-        "AWS"
+        {
+            "technical": ["Python", "AWS"],
+            "management": ["Project Management", "Agile Methodologies", "Team Leadership"]
+        }
     ],
     "performance_reviews": [
         {
@@ -66,6 +162,11 @@
     "benefits": {
         "health_insurance": "Executive Plan",
         "retirement_plan": "401(k) with company match",
-        "paid_time_off": 25
+        "paid_time_off": 25,
+        "additional_benefits": {
+            "gym_membership": true,
+            "stock_options": true,
+            "flexible_work_hours": true
+        }
     }
 }

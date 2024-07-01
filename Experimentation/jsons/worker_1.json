@@ -9,17 +9,58 @@
         "street": "123 Tech Lane",
         "city": "Innovation City",
         "state": "CA",
-        "zip": "94016"
+        "zip": "94016",
+        "geo": {
+            "lat": "37.7749",
+            "lng": "-122.4194"
+        }
     },
     "employment_details": {
         "date_hired": "2022-01-15",
         "salary": 90000,
-        "status": "Full-time"
+        "status": "Full-time",
+        "previous_positions": [
+            {
+                "title": "Junior Developer",
+                "department": "Development",
+                "start_date": "2020-01-15",
+                "end_date": "2022-01-14",
+                "projects": [
+                    {
+                        "project_id": "009",
+                        "name": "Backend API Development",
+                        "role": "Developer",
+                        "details": {
+                            "technologies": ["Node.js", "Express"],
+                            "outcome": "Efficient API with 99% uptime"
+                        }
+                    }
+                ]
+            }
+        ],
+        "benefits": {
+            "health_insurance": "Premium Plan",
+            "retirement_plan": "401(k)",
+            "paid_time_off": 20,
+            "additional_benefits": {
+                "remote_work": true,
+                "education_reimbursement": true,
+                "wellness_programs": ["Yoga", "Meditation"],
+                "family_leave": {
+                    "maternity_leave": "12 weeks",
+                    "paternity_leave": "6 weeks"
+                }
+            }
+        }
     },
     "manager": {
         "manager_id": "67890",
         "name": "John Smith",
-        "position": "Engineering Manager"
+        "position": "Engineering Manager",
+        "contact": {
+            "email": "john.smith@techcompany.com",
+            "phone": "555-9876"
+        }
     },
     "projects": [
         {
@@ -27,38 +68,117 @@
             "name": "Internal Tool Development",
             "role": "Lead Developer",
             "start_date": "2022-02-01",
-            "end_date": "2022-06-30"
+            "end_date": "2022-06-30",
+            "details": {
+                "description": "Developed an internal tool for project management.",
+                "technologies": ["Python", "Django"],
+                "sub_tasks": [
+                    {
+                        "task": "Database Design",
+                        "completed": true
+                    },
+                    {
+                        "task": "UI Implementation",
+                        "completed": true
+                    },
+                    {
+                        "task": "API Integration",
+                        "completed": true
+                    }
+                ],
+                "related_projects": [
+                    {
+                        "project_id": "002",
+                        "relation": "Predecessor"
+                    },
+                    {
+                        "project_id": "003",
+                        "relation": "Successor"
+                    }
+                ]
+            }
         },
         {
             "project_id": "002",
             "name": "Customer Portal",
             "role": "Developer",
             "start_date": "2022-07-01",
-            "end_date": "Present"
+            "end_date": "Present",
+            "details": {
+                "description": "Developed a customer portal for better client interaction.",
+                "technologies": ["React", "Node.js"],
+                "team_members": ["Alice Johnson"],
+                "features": [
+                    {
+                        "feature": "User Authentication",
+                        "status": "Completed"
+                    },
+                    {
+                        "feature": "Data Visualization",
+                        "status": "In Progress"
+                    }
+                ],
+                "dependencies": [
+                    {
+                        "dependency": "Database Migration",
+                        "status": "Pending"
+                    },
+                    {
+                        "dependency": "Frontend Framework Upgrade",
+                        "status": "Completed"
+                    }
+                ]
+            }
         }
     ],
-    "skills": [
-        "Python",
-        "JavaScript",
-        "React",
-        "Node.js",
-        "Django"
-    ],
+    "skills": {
+        "technical": ["Python", "JavaScript", "React", "Node.js", "Django"],
+        "soft_skills": ["Problem-solving", "Team Collaboration", "Adaptability"]
+    },
     "performance_reviews": [
         {
             "review_date": "2022-06-30",
             "rating": 4,
-            "comments": "Jane has shown great initiative and leadership skills."
+            "comments": "Jane has shown great initiative and leadership skills.",
+            "detailed_feedback": {
+                "strengths": ["Technical expertise", "Proactiveness"],
+                "areas_for_improvement": ["Time management"]
+            }
         },
         {
             "review_date": "2023-06-30",
             "rating": 5,
-            "comments": "Jane continues to exceed expectations with her technical expertise."
+            "comments": "Jane continues to exceed expectations with her technical expertise.",
+            "detailed_feedback": {
+                "strengths": ["Innovative thinking", "Mentorship"],
+                "areas_for_improvement": ["Delegation"]
+            }
         }
     ],
-    "benefits": {
-        "health_insurance": "Premium Plan",
-        "retirement_plan": "401(k)",
-        "paid_time_off": 20
-    }
+    "training_and_certifications": [
+        {
+            "certification": "AWS Certified Developer",
+            "date_obtained": "2022-05-01",
+            "valid_until": "2025-05-01"
+        },
+        {
+            "certification": "Scrum Master",
+            "date_obtained": "2023-01-15",
+            "valid_until": "2026-01-15"
+        }
+    ],
+    "personal_projects": [
+        {
+            "project_name": "Open Source Contribution",
+            "description": "Contributed to an open-source project on GitHub.",
+            "technologies": ["JavaScript", "Node.js"],
+            "link": "https://github.com/janedoe/opensource"
+        },
+        {
+            "project_name": "Personal Blog",
+            "description": "Writes technical articles and tutorials on software development.",
+            "technologies": ["HTML", "CSS", "Jekyll"],
+            "link": "https://janedoe.dev"
+        }
+    ]
 }

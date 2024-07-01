@@ -9,17 +9,58 @@
         "street": "456 Creative Blvd",
         "city": "Innovation City",
         "state": "CA",
-        "zip": "94016"
+        "zip": "94016",
+        "geo": {
+            "lat": "37.7749",
+            "lng": "-122.4194"
+        }
     },
     "employment_details": {
         "date_hired": "2021-06-22",
         "salary": 85000,
-        "status": "Full-time"
+        "status": "Full-time",
+        "previous_positions": [
+            {
+                "title": "Junior Designer",
+                "department": "Design",
+                "start_date": "2019-06-22",
+                "end_date": "2021-06-21",
+                "projects": [
+                    {
+                        "project_id": "010",
+                        "name": "Marketing Material Design",
+                        "role": "Designer",
+                        "details": {
+                            "technologies": ["Photoshop", "Illustrator"],
+                            "outcome": "High-quality marketing materials with increased engagement"
+                        }
+                    }
+                ]
+            }
+        ],
+        "benefits": {
+            "health_insurance": "Standard Plan",
+            "retirement_plan": "401(k)",
+            "paid_time_off": 15,
+            "additional_benefits": {
+                "conference_attendance": true,
+                "training_programs": true,
+                "wellness_programs": ["Gym Membership", "Nutrition Counseling"],
+                "family_leave": {
+                    "maternity_leave": "12 weeks",
+                    "paternity_leave": "6 weeks"
+                }
+            }
+        }
     },
     "manager": {
         "manager_id": "67890",
         "name": "John Smith",
-        "position": "Engineering Manager"
+        "position": "Engineering Manager",
+        "contact": {
+            "email": "john.smith@techcompany.com",
+            "phone": "555-9876"
+        }
     },
     "projects": [
         {
@@ -27,38 +68,117 @@
             "name": "Website Redesign",
             "role": "Lead Designer",
             "start_date": "2021-07-01",
-            "end_date": "2021-12-31"
+            "end_date": "2021-12-31",
+            "details": {
+                "description": "Redesigned the company website for a modern look.",
+                "technologies": ["Sketch", "HTML", "CSS"],
+                "sub_tasks": [
+                    {
+                        "task": "Wireframing",
+                        "completed": true
+                    },
+                    {
+                        "task": "Prototyping",
+                        "completed": true
+                    },
+                    {
+                        "task": "Final Design",
+                        "completed": true
+                    }
+                ],
+                "related_projects": [
+                    {
+                        "project_id": "004",
+                        "relation": "Successor"
+                    },
+                    {
+                        "project_id": "002",
+                        "relation": "Predecessor"
+                    }
+                ]
+            }
         },
         {
             "project_id": "004",
             "name": "Mobile App UI",
             "role": "Designer",
             "start_date": "2022-01-01",
-            "end_date": "Present"
+            "end_date": "Present",
+            "details": {
+                "description": "Designed the UI for the company's mobile app.",
+                "technologies": ["Figma", "Adobe XD"],
+                "team_members": ["Jane Doe"],
+                "features": [
+                    {
+                        "feature": "Responsive Design",
+                        "status": "Completed"
+                    },
+                    {
+                        "feature": "User Testing",
+                        "status": "In Progress"
+                    }
+                ],
+                "dependencies": [
+                    {
+                        "dependency": "Backend API",
+                        "status": "Pending"
+                    },
+                    {
+                        "dependency": "Frontend Framework Upgrade",
+                        "status": "Completed"
+                    }
+                ]
+            }
         }
     ],
-    "skills": [
-        "Sketch",
-        "Adobe XD",
-        "Figma",
-        "HTML",
-        "CSS"
-    ],
+    "skills": {
+        "technical": ["Sketch", "Adobe XD", "Figma", "HTML", "CSS"],
+        "soft_skills": ["Creativity", "Attention to Detail", "Communication"]
+    },
     "performance_reviews": [
         {
             "review_date": "2021-12-31",
             "rating": 5,
-            "comments": "Alice has a keen eye for design and consistently delivers high-quality work."
+            "comments": "Alice has a keen eye for design and consistently delivers high-quality work.",
+            "detailed_feedback": {
+                "strengths": ["Creativity", "Efficiency"],
+                "areas_for_improvement": ["Time management"]
+            }
         },
         {
             "review_date": "2022-12-31",
             "rating": 4,
-            "comments": "Alice's design skills are top-notch, but she needs to improve her time management."
+            "comments": "Alice's design skills are top-notch, but she needs to improve her time management.",
+            "detailed_feedback": {
+                "strengths": ["Technical skills", "Team Collaboration"],
+                "areas_for_improvement": ["Project Planning"]
+            }
         }
     ],
-    "benefits": {
-        "health_insurance": "Standard Plan",
-        "retirement_plan": "401(k)",
-        "paid_time_off": 15
-    }
+    "training_and_certifications": [
+        {
+            "certification": "Certified UX Designer",
+            "date_obtained": "2020-11-01",
+            "valid_until": "2023-11-01"
+        },
+        {
+            "certification": "Adobe Certified Expert",
+            "date_obtained": "2021-05-15",
+            "valid_until": "2024-05-15"
+        }
+    ],
+    "personal_projects": [
+        {
+            "project_name": "Portfolio Website",
+            "description": "Created a personal portfolio website to showcase my work.",
+            "technologies": ["HTML", "CSS", "JavaScript"],
+            "link": "https://alicejohnson.design"
+        },
+        {
+            "project_name": "Design System",
+            "description": "Developed a comprehensive design system for consistent UI components.",
+            "technologies": ["Figma", "Sketch"],
+            "link": "https://github.com/alicejohnson/design-system"
+        }
+    ]
 }
