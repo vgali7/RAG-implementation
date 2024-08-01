@@ -1,7 +1,7 @@
 import streamlit as st
-from model_base import Model
-import implementation
-from Display import Display
+from langchain_implementation import implement_langchain
+import llama_index_implementation
+import demo
 
 def login():
     st.title("Login")
@@ -10,32 +10,39 @@ def login():
     if st.button("Login"):
         if username == "admin" and password == "coffee":
             st.session_state['logged_in'] = True
+            st.session_state.langchain = False
+            st.session_state.llama_index = False
             st.rerun()
         else:
             st.error("Invalid username or password")
 
-
 def main():
     st.title("Retrieval Augmented Generation")
 
-    uploaded_files = st.file_uploader("Upload Files", accept_multiple_files=True)
-    if uploaded_files:
-        model = Model()
-        data = implementation.process_files(model, uploaded_files)
+    option = st.radio("", ["Demo Account", "Model"])
 
-        if data[0] or data[1]:
-            question = st.form(key='my_form', clear_on_submit=True)
-            model.question = question.text_input(label="Enter a question")
-            submit_button = question.form_submit_button("Submit request")
-            display = Display(model.question)
+    if option == "Demo Account":
+        data = demo.main()
+        st.write("--------\n Select User")
+        name = st.radio("", data.keys())
+        json_data = demo.choose(name, data)
+        demo.implement(json_data)
 
-            if model.question:
-                implementation.run_rag(model, display, data)
-                implementation.run_agent(model, data)
-                st.info('Process completed.')
-        else:
-            display.container.empty()
-                
+
+    elif option == "Model":
+        uploaded_files = st.file_uploader("Upload Files", accept_multiple_files=True)
+        if uploaded_files:
+            framework = st.radio("", ["Langchain", "LLamaIndex"])
+
+            if framework == "Langchain":
+                implement_langchain(uploaded_files)
+
+            if framework == "LLamaIndex":
+                tools = llama_index_implementation.process_files(uploaded_files)
+                llama_index_implementation.query(tools)
+        
+
+
 
 st.set_page_config(
     page_title="Retrieval Augmented Generation",
