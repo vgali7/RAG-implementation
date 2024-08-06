@@ -2,7 +2,7 @@ import os
 from llama_index.core import load_index_from_storage, StorageContext, VectorStoreIndex
 from llama_index.readers.file import PDFReader
 import Model1
-#os.environ["OPENAI_API_KEY"] = ""
+#os.environ["OPENAI_API_KEY"] = "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"
 
 
 def get_index(data,index_name):

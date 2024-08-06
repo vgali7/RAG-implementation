@@ -22,11 +22,11 @@ def main():
     option = st.radio("", ["Demo Account", "Model"])
 
     if option == "Demo Account":
-        data = demo.main()
+        data, heirarchy, managers = demo.main()
         st.write("--------\n Select User")
         name = st.radio("", data.keys())
-        json_data = demo.choose(name, data)
-        demo.implement(json_data)
+        json_data, team_data = demo.choose(name, data, heirarchy, managers)
+        demo.implement(json_data, team_data)
 
 
     elif option == "Model":
@@ -40,8 +40,6 @@ def main():
             if framework == "LLamaIndex":
                 tools = llama_index_implementation.process_files(uploaded_files)
                 llama_index_implementation.query(tools)
-        
-
 
 
 st.set_page_config(

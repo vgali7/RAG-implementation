@@ -24,42 +24,20 @@ class Model:
         self.es = Elasticsearch('http://localhost:9200')
         self.routes = []
     
-    def add_route(self,file_name, docs):
-        utterances = self.llm.invoke(f'Create uttereances that describe this json {docs} use in a semantic router').content.split("\n")
-        route = Route(name = file_name, utterances = utterances, score_threshold=0.82)
+    def add_route(self, name, utterances):
+        route = Route(name = name, utterances = utterances)
         self.routes.append(route)
 
 
-    def get_retriever(self, text_data=[], json_data=[], split_json=False):
-        if split_json:
-            splitter = RecursiveJsonSplitter(800)
-            json_data = splitter.split_text(json_data=json_data, convert_lists=True)
-            
-            doc_list = []
-            for line in json_data:
-                curr_doc = Document(page_content = line)
-                doc_list.append(curr_doc)
-
-            if self.es.indices.exists(index="elastic_search_vectorstore"):
-                self.es.indices.delete(index="elastic_search_vectorstore")
-            vectorstore = ElasticsearchStore.from_documents(
-                documents=doc_list,
-                index_name="elastic_search_vectorstore",
-                embedding=OpenAIEmbeddings(),
-                es_url="http://localhost:9200",
-            )
-        
-        else:
-            text_splitter = RecursiveCharacterTextSplitter(chunk_size=250, chunk_overlap=50)
-            text_docs = text_splitter.split_documents(text_data)
-            if self.es.indices.exists(index="elastic_search_vectorstore"):
-                self.es.indices.delete(index="elastic_search_vectorstore")
-            vectorstore = ElasticsearchStore.from_documents(
-                documents=text_docs+json_data,
-                index_name="elastic_search_vectorstore",
-                embedding=OpenAIEmbeddings(),
-                es_url="http://localhost:9200",
-            )
+    def get_retriever(self, json_data=[]):
+        if self.es.indices.exists(index="elastic_search_vectorstore"):
+            self.es.indices.delete(index="elastic_search_vectorstore")
+        vectorstore = ElasticsearchStore.from_documents(
+            documents=json_data,
+            index_name="elastic_search_vectorstore",
+            embedding=OpenAIEmbeddings(),
+            es_url="http://localhost:9200",
+        )
         self.retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
 
         
@@ -77,13 +55,19 @@ class Model:
         rag_chain = ({"context": self.retriever, "question": RunnablePassthrough()} | prompt | self.llm | StrOutputParser())
         return rag_chain.invoke(self.question)
 
-    def semantic_router(self):
-        layer = RouteLayer(encoder= OpenAIEncoder(), routes=self.routes)
-        route = layer(self.question)
-
-        if route.name is not None:
-            return route.name
-        else:
-            output = "No route detected"
-            return output
+    def router(self):
+        prompt = PromptTemplate(
+            input_variables=["question"],
+            template="""Classify the following question into one of the following: Self, Team\n
+            Use the following to define the classification\n
+            'Self': The user is asking for information relevant to his own data, 
+            'Team': The user is asking for information relevant to one or more of his employees or his entire team\n
+            Question: {question}\n
+            Answer in one word
+            """
+        )
+        route_chain = {"question": RunnablePassthrough()} | prompt | self.llm
+        route = route_chain.invoke(self.question).content
+        st.write(route)
+        return route
             
