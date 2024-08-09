@@ -13,11 +13,12 @@ from elasticsearch import Elasticsearch
 from langchain.docstore.document import Document
 import streamlit as st
 import os 
-os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
+os.environ['OPENAI_API_KEY'] = api_key
 
 class Model:
     def __init__(self):
-        os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
+        
         self.question = None
         self.llm = ChatOpenAI(model_name="gpt-3.5-turbo")
         self.llm = ChatOpenAI(model_name="gpt-4o")
