@@ -21,7 +21,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import os 
 
 #insert openapi key
-os.environ["OPENAI_API_KEY"] = ""
+os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
 es = Elasticsearch('http://localhost:9200')
 question = "What are examples of vector databases"
 
