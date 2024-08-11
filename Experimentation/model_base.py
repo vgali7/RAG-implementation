@@ -13,8 +13,10 @@ from elasticsearch import Elasticsearch
 from langchain.docstore.document import Document
 import streamlit as st
 import os 
+
 api_key = os.getenv("OPENAI_API_KEY")
-os.environ['OPENAI_API_KEY'] = api_key
+os.environ['OPENAI_API_KEY'] = ""
+
 
 class Model:
     def __init__(self):
@@ -74,6 +76,5 @@ class Model:
         )
         route_chain = {"question": RunnablePassthrough()} | prompt | self.llm
         route = route_chain.invoke(self.question).content
-        st.write(route)
         return route
             

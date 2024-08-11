@@ -1,4 +1,8 @@
 from langchain_community.document_loaders import JSONLoader
+from langchain.tools.retriever import create_retriever_tool
+from langchain.agents import AgentExecutor, create_json_chat_agent
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain import hub
 import csv
 import os 
 import tempfile
@@ -108,18 +112,72 @@ def implement(json_data, team_data):
 
 
     if model.question:
-        st.write(model.question)
         if team_data == []:
             model.get_retriever(json_data)
         else:
             route = model.router()
             if route == "Team":
+                st.write(f"Analyzing team data")
                 model.get_retriever(team_data)
-            elif route == "Self":
-                model.get_retriever(json_data)
             else:
+                st.write(f"Analyzing self data")
                 model.get_retriever(json_data)
 
 
         output = model.create_rag_chain()
+        st.write(f"Question: {model.question}")
         st.write(output)
+
+        st.write("------\nAgent:")
+        tool = create_retriever_tool(
+            retriever = model.retriever,
+            name = "json_retriever",
+            description = "Searches and returns relevant data from a variety of input jsons to answer questions",
+        )
+
+        tools = [tool]
+        human = """
+        TOOLS
+        ------
+        Assistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:
+        {tools}
+        RESPONSE FORMAT INSTRUCTIONS
+        ----------------------------
+        When responding to me, please output a response in the format:
+        Use this if you want the human to use a tool. 
+        Markdown code snippet formatted in the following schema:
+        ```json
+        {{
+            "action": string, \ The action to take. Must be one of {tool_names}
+            "action_input": string \ The input to the action
+        }}
+        ```
+        **Option #2:**
+        Use this if you want to respond directly to the human. Markdown code snippet formatted in the following schema:
+        ```json
+        {{
+            "action": "Final Answer",
+            "action_input": string \ You should put what you want to return to use here
+        }}
+        ```
+        USER'S INPUT
+        --------------------
+        Here is the user's input:
+        {input}
+        """
+        prompt = ChatPromptTemplate.from_messages(
+            [
+                ("system", "You are a powerful assistant who provides answers to questions based on retrieved data using context"),
+                ("human", human),
+                MessagesPlaceholder("agent_scratchpad"),
+            ]
+        )
+        st.write(prompt)
+
+        json_agent = create_json_chat_agent(model.llm, tools, prompt)
+        agent_executor = AgentExecutor(agent=json_agent, tools=tools)
+        
+        if model.question:
+            result = agent_executor.invoke({"input": model.question})
+            st.write(f'Question: {result["input"]}')
+            st.write(result["output"])
