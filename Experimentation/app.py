@@ -8,7 +8,7 @@ def login():
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
     if st.button("Login"):
-        if username == "admin" and password == "coffee":
+        if username == "admin" and password == "RAG!PASSWORD!2024":
             st.session_state['logged_in'] = True
             st.session_state.langchain = False
             st.session_state.llama_index = False
@@ -17,7 +17,7 @@ def login():
             st.error("Invalid username or password")
 
 def main():
-    st.title("Retrieval Augmented Generation")
+    st.title("Seller Prompts")
 
     option = st.radio("", ["Demo Account", "Model"])
 
