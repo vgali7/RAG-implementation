@@ -23,11 +23,7 @@ class Model:
         os.environ['OPENAI_API_KEY'] = api_key
         self.question = None
         self.llm = ChatOpenAI(model_name="gpt-3.5-turbo")
-        self.llm = ChatOpenAI(
-            model_name="gpt-4o",
-            temperature=0,
-            model_kwargs={"top_p": 0.1}
-        )
+        self.llm = ChatOpenAI(model_name="gpt-4o")
         self.retriever = None
         self.es = Elasticsearch('http://localhost:9200')
         self.routes = []
