@@ -131,8 +131,8 @@ def implement(json_data, team_data):
         st.write("------\nAgent:")
         tool = create_retriever_tool(
             retriever = model.retriever,
-            name = "json_retriever",
-            description = "Searches and returns relevant data from a variety of input jsons to answer questions",
+            name = "ACCOUNT-PLAN DETAILS",
+            description = "Searches and returns relevant data regarding sales for one or more salesman.",
         )
 
         tools = [tool]
@@ -144,16 +144,18 @@ def implement(json_data, team_data):
         RESPONSE FORMAT INSTRUCTIONS
         ----------------------------
         When responding to me, please output a response in the format:
-        Use this if you want the human to use a tool. 
+        Use this if you want the human is asking a question that has no relevance to any of the tools. 
         Markdown code snippet formatted in the following schema:
         ```json
         {{
-            "action": string, \ The action to take. Must be one of {tool_names}
-            "action_input": string \ The input to the action
+            "action": string, \ The action must be one of {tool_names}
+            "action_input": string \ This action is not allowed.
         }}
         ```
+
         **Option #2:**
         Use this if you want to respond directly to the human. Markdown code snippet formatted in the following schema:
+
         ```json
         {{
             "action": "Final Answer",
@@ -173,9 +175,9 @@ def implement(json_data, team_data):
             ]
         )
         st.write(prompt)
-
+ 
         json_agent = create_json_chat_agent(model.llm, tools, prompt)
-        agent_executor = AgentExecutor(agent=json_agent, tools=tools)
+        agent_executor = AgentExecutor(agent=json_agent, tools=tools, handle_parsing_errors=True)
         
         if model.question:
             result = agent_executor.invoke({"input": model.question})
