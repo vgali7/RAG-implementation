@@ -15,7 +15,7 @@ import streamlit as st
 import os 
 
 api_key = os.getenv("OPENAI_API_KEY")
-os.environ['OPENAI_API_KEY'] = ""
+os.environ['OPENAI_API_KEY'] = api_key
 
 
 class Model:
