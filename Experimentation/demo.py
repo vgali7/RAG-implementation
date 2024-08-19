@@ -2,6 +2,9 @@ from langchain_community.document_loaders import JSONLoader
 from langchain.tools.retriever import create_retriever_tool
 from langchain.agents import AgentExecutor, create_json_chat_agent
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.runnables.history import RunnableWithMessageHistory
+from langchain_community.chat_message_histories import ChatMessageHistory
+from langchain.memory import ChatMessageHistory
 from langchain import hub
 import csv
 import os 
@@ -100,7 +103,7 @@ def choose(name, data, heirarchy, managers):
         
 def implement(json_data, team_data):
     model = Model()
-    question = st.form(key='my_form', clear_on_submit=True)
+    question = st.form(key='model_question', clear_on_submit=True)
     model.question = question.text_input(label="Enter a question")
     submit_button = question.form_submit_button("Submit")
 
@@ -124,11 +127,10 @@ def implement(json_data, team_data):
                 model.get_retriever(json_data)
 
 
-        output = model.create_rag_chain()
-        st.write(f"Question: {model.question}")
-        st.write(output)
-
-        st.write("------\nAgent:")
+        #output = model.create_rag_chain() 
+        #st.write(f"Question: {model.question}")
+        #st.write(output)
+ 
         tool = create_retriever_tool(
             retriever = model.retriever,
             name = "ACCOUNT-PLAN DETAILS",
@@ -140,46 +142,46 @@ def implement(json_data, team_data):
         TOOLS
         ------
         Assistant can ask the user to use tools to look up information that may be helpful in answering the users original question. The tools the human can use are:
-        {tools}
+        {tools} as well as chat history
         RESPONSE FORMAT INSTRUCTIONS
         ----------------------------
-        When responding to me, please output a response in the format:
+        When responding to me, please output a response in one of the formats below:
         Use this if you want the human is asking a question that has no relevance to any of the tools. 
-        Markdown code snippet formatted in the following schema:
-        ```json
-        {{
-            "action": string, \ The action must be one of {tool_names}
-            "action_input": string \ This action is not allowed.
-        }}
-        ```
+        **Option #1** :
+            "action": string, \ This action is not allowed. The action must be one of {tool_names}
+            "action_input": string \ The action must be one of {tool_names}.
 
-        **Option #2:**
-        Use this if you want to respond directly to the human. Markdown code snippet formatted in the following schema:
-
-        ```json
-        {{
+        **Option #2** :
+        Use this if you want to respond directly to the human using the available tools.
             "action": "Final Answer",
             "action_input": string \ You should put what you want to return to use here
-        }}
-        ```
+
         USER'S INPUT
         --------------------
         Here is the user's input:
         {input}
-        """
+        """ 
         prompt = ChatPromptTemplate.from_messages(
             [
-                ("system", "You are a powerful assistant who provides answers to questions based on retrieved data using context"),
+                ("system", "You are a powerful assistant who provides answers to questions based on retrieved data using context and chat history"),
                 ("human", human),
                 MessagesPlaceholder("agent_scratchpad"),
+                MessagesPlaceholder("chat_history"),
             ]
         )
-        st.write(prompt)
  
         json_agent = create_json_chat_agent(model.llm, tools, prompt)
         agent_executor = AgentExecutor(agent=json_agent, tools=tools, handle_parsing_errors=True)
+        agent_chain = RunnableWithMessageHistory(agent_executor, lambda session_id: model.memory, input_messages_key="input", history_messages_key="chat_history")
         
-        if model.question:
-            result = agent_executor.invoke({"input": model.question})
-            st.write(f'Question: {result["input"]}')
-            st.write(result["output"])
+        response = agent_chain.invoke({"input": model.question} ,config={"configurable": {"session_id": "1"}})
+        st.write("------\nAgent:")
+        st.write(response["output"]) 
+
+        if st.button("Follow up"):
+            follow_up_question = input("Follow up:")
+            if follow_up_question:
+                response = agent_chain.invoke({"input": follow_up_question} ,config={"configurable": {"session_id": "1"}})
+                st.write(response)
+                print(response)
+            
